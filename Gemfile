@@ -62,3 +62,5 @@ gem 'cancan'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+
+gem 'rails_12factor', group: :production

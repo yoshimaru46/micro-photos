@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MicroPhotos</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container is-fluid">
+      <nav class="navbar">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img src="<%= asset_path "logo.png" %> ">
+          </a>
+        </div>
+        <div class="navbar-menu">
+          <div class="navbar-start">
+          </div>
+          <div class="navbar-end">
+            <%= link_to new_photo_path, class: "navbar-item" do %>
+              <span class="icon">
+                <i class="fa fa-paper-plane-o"></i>
+              </span>
+            <% end %>
+            <%= link_to photos_path, class: "navbar-item" do %>
+              <span class="icon">
+                <i class="fa fa-photo"></i>
+              </span>
+            <% end %>
+            <% if user_signed_in? %>
+              <%= link_to destroy_user_session_path, method: :delete, class: "navbar-item" do %>
+                <span class="icon">
+                  <i class="fa fa-sign-out"></i>
+                </span>
+              <% end %>
+            <% else %>
+              <%= link_to new_user_session_path, class: "navbar-item" do %>
+                <span class="icon">
+                  <i class="fa fa-sign-in"></i>
+                </span>
+              <% end %>
+              <%= link_to new_user_registration_path, class: "navbar-item" do %>
+                <span class="icon">
+                  <i class="fa fa-user-plus"></i>
+                </span>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+      <div class="columns is-mobile">
+        <div class="column is-11 is-offset-1">
+          <br>
+          <%= yield %>
+          <br>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>MicroPhotos</strong> by <a href="https://github.com/yshr446">Yoshihiro Saito</a>. The source code is licensed
+          <a href="https://diveintocode.jp/">DIC</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<div class="columns is-mobile">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-480x480">
+          <% if @photo.image.blank? then %>
+            <img src="<%= asset_path "no_image.png" %> ">
+          <% else %>
+            <img src="<%= @photo.image %>" alt="Image">
+          <% end %>
+        </figure>
+      </div>
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <p class="title is-4"><%= @photo.title %></p>
+            <p class="subtitle is-6"><%= User.find_by(id:@photo.user_id).name %></p>
+          </div>
+        </div>
+        <div class="content">
+          <small><%= @photo.updated_at %></small>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <%= link_to '編集', edit_photo_path(@photo) ,class: "card-footer-item"%>
+        <%= link_to '削除', @photo, method: :delete, data: { confirm: '本当に削除しますか？' } ,class: "card-footer-item"%>
+      </footer>
+    </div>
+  </div>

@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
     user
   end
 
-
   def self.find_for_twitter_oauth(auth, signed_in_resource = nil)
     user = User.find_by(provider: auth.provider, uid: auth.uid)
 
@@ -42,13 +41,6 @@ class User < ActiveRecord::Base
     user
   end
 
-  class Users::RegistrationsController < Devise::RegistrationsController
-    def build_resource(hash=nil)
-      hash[:uid] = User.create_unique_string
-      super
-    end
-  end
-
   # omniauthでサインアップしたアカウントのユーザ情報の変更出来るようにする
   def update_with_password(params, *options)
     if provider.blank?
@@ -57,6 +49,10 @@ class User < ActiveRecord::Base
       params.delete :current_password
       update_without_password(params, *options)
     end
+  end
+
+  def self.create_unique_string
+    SecureRandom.uuid
   end
 
 end

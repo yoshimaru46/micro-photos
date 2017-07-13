@@ -24,28 +24,33 @@
               <span class="icon">
                 <i class="fa fa-paper-plane-o"></i>
               </span>
+              新規投稿
             <% end %>
             <%= link_to photos_path, class: "navbar-item" do %>
               <span class="icon">
                 <i class="fa fa-photo"></i>
               </span>
+              投稿一覧
             <% end %>
             <% if user_signed_in? %>
               <%= link_to destroy_user_session_path, method: :delete, class: "navbar-item" do %>
                 <span class="icon">
                   <i class="fa fa-sign-out"></i>
                 </span>
+                サインアウト
               <% end %>
             <% else %>
               <%= link_to new_user_session_path, class: "navbar-item" do %>
                 <span class="icon">
                   <i class="fa fa-sign-in"></i>
                 </span>
+                ログイン
               <% end %>
               <%= link_to new_user_registration_path, class: "navbar-item" do %>
                 <span class="icon">
                   <i class="fa fa-user-plus"></i>
                 </span>
+                新規登録
               <% end %>
             <% end %>
           </div>

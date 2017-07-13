@@ -29,7 +29,7 @@
           <div class="media">
             <div class="media-left">
               <figure class="image is-48x48">
-                <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
+                <%= profile_img(User.find(photo.user_id)) %>
               </figure>
             </div>
             <div class="media-content">

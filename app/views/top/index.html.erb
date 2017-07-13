@@ -5,6 +5,34 @@
     </div>
   </article>
 <% end %>
-<section class="about">
-  <h1>Welcome to MicroPhotos</h1>
+<section class="hero is-medium is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Welcome to MicroPhotos
+      </h1>
+    </div>
+  </div>
 </section>
+<div class="columns">
+  <div class="column">
+    <div class="column">
+      <img src="<%= asset_path "iphone.png" %> ">
+    </div>
+  </div>
+  <div class="column">
+    <div class="column is-half">
+      <%= link_to '　　　新規登録　　　', new_user_registration_path,class: "button is-large is-warning"%>
+    </div>
+    <div class="column is-half">
+      <%= link_to '　　　ログイン　　　', new_user_session_path,class: "button is-large is-danger"%>
+    </div>
+    <div class="column is-half">
+      <%= link_to "Sign in with Facebook", omniauth_authorize_path(:user, :facebook),class: "button is-large is-info" %>
+    </div>
+    <div class="column is-half">
+      <%= link_to "Sign in with Twitter", omniauth_authorize_path(:user, :twitter),class: "button is-large is-primary" %>
+    </div>
+  </div>
+</div>
+</div>

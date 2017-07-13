@@ -14,7 +14,7 @@
         <div class="media">
           <div class="media-left">
             <figure class="image is-48x48">
-              <img src="http://bulma.io/images/placeholders/96x96.png" alt="Image">
+              <%= profile_img(User.find(@photo.user_id)) %>
             </figure>
           </div>
           <div class="media-content">
@@ -23,7 +23,8 @@
           </div>
         </div>
         <div class="content">
-          <small><%= @photo.updated_at %></small>
+          <p><big><%= @photo.content %></big></p>
+          <p><small><%= @photo.updated_at %></small></p>
         </div>
       </div>
       <footer class="card-footer">

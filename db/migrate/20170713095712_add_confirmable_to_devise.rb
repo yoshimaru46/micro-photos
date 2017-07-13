@@ -7,7 +7,7 @@ class AddConfirmableToDevise < ActiveRecord::Migration
     add_index :users, :confirmation_token, unique: true
     # User.reset_column_information # Need for some types of updates, but not for update_all.
 
-    # execute("UPDATE users SET confirmed_at = NOW()")
+    execute("UPDATE users SET confirmed_at = NOW()")
   end
 
   def down

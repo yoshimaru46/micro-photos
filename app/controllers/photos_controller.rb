@@ -32,7 +32,7 @@ class PhotosController < ApplicationController
   def update
     respond_to do |format|
       if @photo.update(photo_params)
-        format.html { redirect_to photos_path notice: '更新しました！' }
+        format.html { redirect_to photos_path, notice: '更新しました！' }
       else
         format.html { render :edit }
       end

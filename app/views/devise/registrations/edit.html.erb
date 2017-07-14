@@ -14,22 +14,6 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
       <div class="field">
-        <%= f.label :password, class: "label" %> <i>(leave blank if you don't want to change it)</i>
-        <%= f.password_field :password, autocomplete: "off", class: "input" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
-      </div>
-      <div class="field">
-        <%= f.label :password_confirmation, class: "label" %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "input" %>
-      </div>
-      <div class="field">
-        <%= f.label :current_password, class: "label" %> <i>(we need your current password to confirm your changes)</i>
-        <%= f.password_field :current_password, autocomplete: "off", class: "input" %>
-      </div>
-      <div class="field">
         <%= profile_img(@user) if profile_img(@user) %>
         <%= f.file_field :avatar, class: "input"%>
         <%= f.hidden_field :avatar_cache %>

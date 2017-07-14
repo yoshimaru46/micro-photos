@@ -20,19 +20,21 @@
       <img src="<%= asset_path "iphone.png" %> ">
     </div>
   </div>
-  <div class="column">
-    <div class="column is-half">
-      <%= link_to '　　　新規登録　　　', new_user_registration_path,class: "button is-large is-warning"%>
+  <% if !user_signed_in? %>
+    <div class="column">
+      <div class="column is-half">
+        <%= link_to '　　　新規登録　　　', new_user_registration_path,class: "button is-large is-warning"%>
+      </div>
+      <div class="column is-half">
+        <%= link_to '　　　ログイン　　　', new_user_session_path,class: "button is-large is-danger"%>
+      </div>
+      <div class="column is-half">
+        <%= link_to "Sign in with Facebook", omniauth_authorize_path(:user, :facebook),class: "button is-large is-info" %>
+      </div>
+      <div class="column is-half">
+        <%= link_to "Sign in with Twitter", omniauth_authorize_path(:user, :twitter),class: "button is-large is-primary" %>
+      </div>
     </div>
-    <div class="column is-half">
-      <%= link_to '　　　ログイン　　　', new_user_session_path,class: "button is-large is-danger"%>
-    </div>
-    <div class="column is-half">
-      <%= link_to "Sign in with Facebook", omniauth_authorize_path(:user, :facebook),class: "button is-large is-info" %>
-    </div>
-    <div class="column is-half">
-      <%= link_to "Sign in with Twitter", omniauth_authorize_path(:user, :twitter),class: "button is-large is-primary" %>
-    </div>
-  </div>
+  <% end %>
 </div>
 </div>

@@ -37,6 +37,8 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'hirb'         # モデルの出力結果を表形式で表示するGem
+  gem 'hirb-unicode' # 日本語などマルチバイト文字の出力時の出力結果のずれに対応
 end
 
 group :development do
